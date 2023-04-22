@@ -3,53 +3,62 @@ import webbrowser
 import pyautogui
 import time
 
-# Inicializa o recognizer
+
 r = sr.Recognizer()
 
-# Loop principal para escutar comandos de voz
+commands = """
+* Nexus Pesquisar [parêmetro]:
+    - Abre o navegador e pesquisa o parâmetro informado no google.
+
+* Nexus Tocar Música:
+    - Abre o spotfy no navegador e inicia a música.
+    - Necessário o usuário manter o Spotfy logado.
+
+* Nexus Parar Música:
+    - Pausa a música atual.
+
+* Nexus Retomar Música:
+    - Retoma a música atual.
+
+* Nexus Desligar:
+    - Encerra o Nexus.
+
+"""
+
+print(commands)
+
 while True:
     with sr.Microphone() as source:
         print("Nexus: Ouvindo...")
         audio = r.listen(source)
 
         try:
-            # Usa o Google Speech Recognition para converter o áudio em texto
             command = r.recognize_google(audio, language='pt-BR')
 
-            # Verifica se o comando contém "nexus pesquisar"
             if "nexus pesquisar" in command.lower():
-                # Extrai o termo de pesquisa
                 search_term = command.lower().replace("nexus pesquisar", "")
                 search_term = search_term.strip()
-
-                # Abre o navegador e pesquisa o termo no Google
                 url = "https://www.google.com/search?q={}".format(search_term)
                 webbrowser.get().open(url)
                 print("Nexus: Pesquisando por '{}' no Google...".format(search_term))
 
             elif "nexus tocar música" in command.lower():
-                # Extrai o nome da música
                 music_name = command.lower().replace("nexus tocar música", "")
                 music_name = music_name.strip()
-
-                # Abre o navegador e toca a música no Spotfy
                 url = f"https://open.spotify.com/?autoplay=true"
                 webbrowser.get().open(url)
+                print(f"Nexus: Aguarde um momento...")
+                time.sleep(5)
+                pyautogui.hotkey('space')
                 print(f"Nexus: Tocando música no Spotify...")
 
-                # Simula as teclas de atalho para iniciar a música
-                time.sleep(5)  # aguarda 5 segundos para usar o comando
-                pyautogui.hotkey('space')
 
             elif "nexus parar música" in command.lower():
-                # Simula as teclas de atalho para parar a música
                 pyautogui.hotkey('space')
 
             elif "nexus retomar música" in command.lower():
-                # Simula as teclas de atalho para tocar a música
                 pyautogui.hotkey('space')
 
-            # Verifica se o comando é "nexus desligar" para e ncerrar o programa
             elif "nexus desligar" in command.lower():
                 print("Nexus: Encerrando o programa...")
                 break
