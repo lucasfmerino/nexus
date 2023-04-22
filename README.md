@@ -34,7 +34,7 @@ Para usar o Nexus, siga as instruções abaixo:
 1. Clone ou faça o download do repositório.
 
     ```bash
-    git clone https://github.com/seu-username/nexus-voice-assistant.git
+    git clone https://github.com/lucasfmerino/nexus.git
     ```
 
 2. Instale as dependências:
