@@ -6,6 +6,7 @@
 # Nexus
 
 O Nexus é um programa que permite realizar algumas tarefas simples utilizando comandos de voz.
+<br>
 
 ## Comandos Disponíveis
 
@@ -24,16 +25,28 @@ O Nexus é um programa que permite realizar algumas tarefas simples utilizando c
 
 * Nexus Desligar:
     - Encerra o Nexus.
+<br>
 
 ## Como Usar
 
 Para usar o Nexus, siga as instruções abaixo:
 
 1. Clone ou faça o download do repositório.
-2. Instale as dependências com `pip install -r requirements.txt`.
-3. Execute o programa com `python nexus.py`.
+
+    ```bash
+    git clone https://github.com/seu-username/nexus-voice-assistant.git
+    ```
+
+2. Instale as dependências:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Execute o programa com `nexus.py`.
 4. Aguarde até que o programa solicite um comando de voz.
 5. Diga o comando de voz desejado.
+<br>
 
 ## Tecnologias Utilizadas
 
@@ -43,6 +56,7 @@ Nexus foi desenvolvido em Python e utiliza as seguintes bibliotecas:
 * webbrowser
 * pyautogui
 * time
+<br>
 
 ## Licença
 
