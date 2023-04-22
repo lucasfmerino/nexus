@@ -43,8 +43,6 @@ while True:
                 print("Nexus: Pesquisando por '{}' no Google...".format(search_term))
 
             elif "nexus tocar música" in command.lower():
-                music_name = command.lower().replace("nexus tocar música", "")
-                music_name = music_name.strip()
                 url = f"https://open.spotify.com/?autoplay=true"
                 webbrowser.get().open(url)
                 print(f"Nexus: Aguarde um momento...")
